@@ -20,8 +20,6 @@ data_df.replace(to_replace={'Less than 1 year':'0', 'More than 50 years':'50', '
 data_df.dropna(inplace=True, how='any')
 data_df = data_df.astype('int64')
 
-print(data_df)
-
 #Prepare dataset
 dataset = {'y':data_df.Hobbyist,'x':data_df[['Age', 'YearsCodePro', 'ConvertedComp', 'Student', 'Dependents']]}
 
@@ -53,5 +51,3 @@ parameters = {'accuracy' : accuracy_score(test_y, y_pred),
 							'speciality' : tn / (tn + fp)}
 #Calculate F1 score
 parameters['f_1_'] = f1_score(test_y, y_pred)
-
-print(parameters)
