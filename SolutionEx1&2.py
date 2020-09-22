@@ -50,10 +50,10 @@ for data_type in ['train', 'test']:
 		dataset[data_type]['f_1_'+var] = f1_score(dataset[data_type]['y'], dataset[data_type]['y_'+ var +'_predictions'])
 
 		#Someone should be in a room
-		dataset[data_type]['f_beta_first_case_'+var] = fbeta_score(dataset[data_type]['y'], dataset[data_type]['y_'+ var +'_predictions'], beta=0.5)
+		dataset[data_type]['f_beta_first_case_'+var] = fbeta_score(dataset[data_type]['y'], dataset[data_type]['y_'+ var +'_predictions'], beta=2)
 
 		#Room is empty
-		dataset[data_type]['f_beta_second_case_'+var] = fbeta_score(dataset[data_type]['y'], dataset[data_type]['y_'+ var +'_predictions'], beta=2.0)
+		dataset[data_type]['f_beta_second_case_'+var] = fbeta_score(dataset[data_type]['y'], dataset[data_type]['y_'+ var +'_predictions'], beta=0.5)
 
 #Save predicted data from both models to out file
 output_df = pd.DataFrame({'single': dataset['test']['y_single_predictions'], 'multi': dataset['test']['y_multi_predictions']})
